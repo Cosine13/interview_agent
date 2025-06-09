@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Upload, Button, message, Card, Row, Col, Progress, List } from 'antd';
+import { Upload, Button, message, Card, Row, Col, List } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 import ReactECharts from 'echarts-for-react';
 import './App.css';

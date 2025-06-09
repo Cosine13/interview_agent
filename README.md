@@ -21,6 +21,8 @@
 
 ## 快速开始
 
+python版本：3.11.0
+
 ```bash
 # 安装依赖
 pip install -r requirements.txt
@@ -29,5 +31,8 @@ pip install -r requirements.txt
 uvicorn main:app --reload
 
 # 启动前端
-cd frontend && npm start
+node版本：v18.20.1
+cd frontend
+npm install
+npm start
 ```

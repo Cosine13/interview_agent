@@ -25,9 +25,9 @@ class InterviewRequest(BaseModel):
 
 @app.post("/evaluate")
 async def evaluate_interview(
+    request: InterviewRequest, # 非默认参数，放在最前面
     audio: UploadFile = File(...),
-    video: UploadFile = File(...),
-    request: InterviewRequest
+    video: UploadFile = File(...)
 ):
     """
     面试评测接口
