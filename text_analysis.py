@@ -93,3 +93,5 @@ class TextAnalyzer:
             print(f"调用大模型API出错: {e}")
             return {"logical": 0.7, "clarity": 0.8, "depth": 0.6, "star": False}
 
+
+
