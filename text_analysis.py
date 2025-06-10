@@ -70,7 +70,26 @@ class TextAnalyzer:
         """统计专业术语数量"""
         return len([word for word in jieba.cut(text) if word in self.technical_terms])
     
-    def _call_llm_api(self, text) -> Dict:
-        """调用大模型API进行语义分析"""
-        # 这里应实现API调用逻辑
-        return {"logical": 0.7, "clarity": 0.8, "depth": 0.6, "star": False}
+    def _call_llm_api(self, text: str, api_url: str = "https://spark-api-open.xf-yun.com/v2/chat/completions", api_key: str = "1df26553e4b96bd986c1247395108362") -> Dict:
+        """
+        调用大模型API进行语义分析
+        :param text: 待分析文本
+        :param api_url: 大模型API地址，默认为示例URL
+        :param api_key: API密钥，默认为示例密钥
+        :return: 分析结果字典
+        """
+        headers = {
+            "Content-Type": "application/json",
+            "Authorization": f"Bearer {api_key}"
+        }
+        data = {
+            "text": text
+        }
+        try:
+            response = requests.post(api_url, headers=headers, json=data)
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"调用大模型API出错: {e}")
+            return {"logical": 0.7, "clarity": 0.8, "depth": 0.6, "star": False}
+
